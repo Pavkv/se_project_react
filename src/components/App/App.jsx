@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react';
-import Header from '../Header/Header';
-import Main from '../Main/Main';
-import Footer from '../Footer/Footer';
-import ItemModal from "../ItemModal/ItemModal";
-import AddGarmentForm from "../ModalWithForm/AddGarmentForm";
+import Header from '../Header/Header.jsx';
+import Main from '../Main/Main.jsx';
+import Footer from '../Footer/Footer.jsx';
+import ItemModal from "../ItemModal/ItemModal.jsx";
+import AddGarmentForm from "../ModalWithForm/AddGarmentForm.jsx";
 import * as constants from '../../utils/constants.js';
 import {getLocationNameWeather} from '../../utils/weatherApi.js';
 

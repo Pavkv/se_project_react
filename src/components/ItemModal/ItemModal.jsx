@@ -1,4 +1,4 @@
-import Modal from "../Modal/Modal";
+import Modal from "../Modal/Modal.jsx";
 
 export default function ItemModal({ item, onClose, isOpen }) {
     return (

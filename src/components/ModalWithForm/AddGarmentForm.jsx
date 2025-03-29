@@ -1,4 +1,4 @@
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import ModalWithForm from "./ModalWithForm.jsx";
 
 export default function AddGarmentForm({onClose, isOpen}) {
     return (
