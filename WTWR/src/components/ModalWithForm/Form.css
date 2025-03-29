@@ -1,0 +1,106 @@
+.form {
+    margin: 28px 28px 36px;
+}
+
+.form__title {
+    margin: 0;
+    font-size: 1rem;
+    padding-bottom: 24px;
+}
+
+.form__fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: none;
+    margin: 0;
+    padding: 0;
+    gap: 24px;
+}
+
+.form__label {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__label-header {
+    display: flex;
+}
+
+.form__input {
+    border: none;
+    border-bottom: 1px solid #000;
+    margin-top: 8px;
+    opacity: .5;
+    transition: opacity .3s ease-in-out;
+}
+
+.form__label_radio {
+    gap: 8px;
+}
+
+.form__radio-label {
+    display: inline-flex;
+    align-items: flex-start;
+    opacity: .5;
+}
+
+.form__radio-label:first-of-type {
+    padding-top: 4px;
+}
+
+.form__radio-input {
+    width: 16px;
+    height: 16px;
+    margin-right: 11px;
+}
+
+.form__input:hover,
+.form__input:focus {
+    opacity: 1;
+    outline: none;
+}
+
+.form__radio-label:has(.form__radio-input:checked) {
+    opacity: 1;
+    accent-color: black;
+}
+
+.form__button-submit {
+    margin-top: 8px;
+    background-color: #000;
+    border: none;
+    border-radius: 4px;
+    color: #FFF;
+    transition: opacity .7s ease-in-out;
+    cursor: pointer;
+    width: 124px;
+    height: 36px;
+    padding: 8px 16px;
+}
+
+.form__button-submit:hover {
+    opacity: .6;
+}
+
+.form__button-submit_disabled {
+    opacity: .3;
+    cursor: default;
+}
+
+.form__input_type_error {
+    border: none;
+    border-bottom: 1px solid #FF4D00;
+    color: #FF4D00;
+}
+
+.form__error {
+    color: #FF4D00;
+    line-height: 0;
+}
+
+.form__error_visible {
+    padding-left: 8px;
+    line-height: 1.25;
+    overflow: hidden;
+}

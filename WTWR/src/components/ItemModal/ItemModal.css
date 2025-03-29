@@ -1,0 +1,20 @@
+.item-modal__card-img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.item-modal__card-text {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin: 0;
+    padding-left: 32px;
+}
+
+.item-modal__card-text_name {
+    padding-top: 20px;
+    padding-bottom: 12px;
+}
+
+.item-modal__card-text_filter {
+    padding-bottom: 32px;
+}
