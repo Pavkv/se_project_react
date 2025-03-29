@@ -18,7 +18,7 @@ const getWeatherCardBG = (type, sunrise, sunset) => {
         "Fog": "Fog"
     })[type];
     const dayTime = time > sunrise * 1000 && time < sunset * 1000 ? "Day" : "Night";
-    return `../../assets/Weather-Card/${dayTime}/${weatherType}.png`;
+    return `assets/Weather-Card/${dayTime}/${weatherType}.png`;
 };
 
 export const getLocationNameWeather = (lat, lon, key) => {
