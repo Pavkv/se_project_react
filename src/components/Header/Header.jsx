@@ -1,38 +1,24 @@
 import {useState} from 'react';
 
 const Logo = () => {
-    return (
-        <>
-            <span className="header__logo"/>
-        </>
-    )
+    return (<span className="header__logo"/>)
 };
 
 const CurrentDate = () => {
     const currentDate = new Date().toLocaleString('default', {month: 'long', day: 'numeric'});
 
-    return (
-        <>
-            <time className="header__text header__text_date-loc">{currentDate},</time>
-        </>
-    );
+    return (<time className="header__text header__text_date-loc">{currentDate},</time>);
 };
 
 const Location = ({location}) => {
-    return (
-        <>
-            <p className="header__text header__text_date-loc">&nbsp;{location}</p>
-        </>
-    );
+    return (<p className="header__text header__text_date-loc">&nbsp;{location}</p>);
 };
 
 const AddClothes = ({onClick}) => {
     return (
-        <>
-            <button className="header__add-clothes header__text" onClick={onClick}>
-                + Add clothes
-            </button>
-        </>
+        <button className="header__add-clothes header__text" onClick={onClick}>
+            + Add clothes
+        </button>
     );
 };
 
@@ -71,7 +57,7 @@ export default function Header({location, onAddClothesClick, isMobile, isMobileM
                                 type="button"
                                 className="header__close-btn"
                                 onClick={toggleMobileMenu}
-                            ></button>
+                            />
                             <div className="header__mobile-user">
                                 <User/>
                             </div>

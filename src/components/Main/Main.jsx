@@ -40,17 +40,15 @@ const ItemCards = ({clothingItems, onCardClick, temp}) => {
 
 const Randomize = ({onClick}) => {
     return (
-        <>
-            <button className="main__randomize" onClick={onClick}>
-                <span className="main__randomize-icon" />
-                Randomize
-            </button>
-        </>
+        <button className="main__randomize" onClick={onClick}>
+            <span className="main__randomize-icon"/>
+            Randomize
+        </button>
     );
 };
 
 
-export default function Main({ weatherCard, clothingItems, onCardClick, isMobileMenuOpen, isMobile }) {
+export default function Main({weatherCard, clothingItems, onCardClick, isMobileMenuOpen, isMobile}) {
     const [filteredItems, setFilteredItems] = useState([]);
 
     useEffect(() => {
@@ -65,12 +63,12 @@ export default function Main({ weatherCard, clothingItems, onCardClick, isMobile
     return (
         <main className='main'>
             {!isMobileMenuOpen && (
-                <WeatherCard weatherCard={weatherCard} />
+                <WeatherCard weatherCard={weatherCard}/>
             )}
-            <WeatherToday temp={weatherCard.temp} />
-            <ItemCards clothingItems={filteredItems} onCardClick={onCardClick} temp={weatherCard.temp} />
+            <WeatherToday temp={weatherCard.temp}/>
+            <ItemCards clothingItems={filteredItems} onCardClick={onCardClick} temp={weatherCard.temp}/>
             {isMobile && (
-                <Randomize onClick={handleRandomize} />
+                <Randomize onClick={handleRandomize}/>
             )}
         </main>
     );

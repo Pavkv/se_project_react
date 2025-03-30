@@ -20,14 +20,14 @@ export default function App() {
                 setLocation(data.location);
                 setTemp(data.temp);
                 setWeatherCardBG(data.weatherCardBG);
-            });
+            }).catch(err => console.log(err));
         },
             () => {
                 getLocationNameWeather(constants.location.latitude, constants.location.longitude, constants.OPENWEATHERKEY).then(data => {
                     setLocation(data.location);
                     setTemp(data.temp);
                     setWeatherCardBG(data.weatherCardBG);
-                });
+                }).catch(err => console.log(err));
             });
     }, []);
 

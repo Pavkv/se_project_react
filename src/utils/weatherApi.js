@@ -28,5 +28,5 @@ export const getLocationNameWeather = (lat, lon, key) => {
             location: res.name,
             temp: Math.round(res.main.temp),
             weatherCardBG: getWeatherCardBG(res.weather[0].main, res.sys.sunrise, res.sys.sunset)
-    }}).catch(err => console.log(err));
+    }});
 };

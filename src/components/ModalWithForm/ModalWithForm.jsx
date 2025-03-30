@@ -1,36 +1,15 @@
 import Modal from "../Modal/Modal.jsx";
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
+import {useFormAndValidation} from "../../utils/useFormAndValidation.js";
 
 export default function ModalWithForm({onClose, title, name, buttonText, isOpen, children, onSubmit, inputs}) {
-    const [values, setValues] = useState({});
-    const [errors, setErrors] = useState({});
-    const [isValid, setValid] = useState(false);
+    const { values, handleChange, handleSubmit, errors, isValid, resetForm, setIsValid } = useFormAndValidation(onSubmit);
 
     useEffect(() => {
         if (values && Object.keys(values).length === inputs) {
-            setValid(Object.keys(errors).length === 0);
+            setIsValid(Object.keys(errors).length === 0);
         }
     }, [values]);
-
-    const handleChange = (e) => {
-        const {name, value, validationMessage} = e.target;
-
-        setValues((prev) => ({...prev, [name]:value}));
-        const newErrors = {...errors};
-        if (validationMessage || !value.trim()){
-            newErrors[name] = validationMessage;
-        } else {
-            delete newErrors[name];
-        }
-
-        setErrors(newErrors);
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!isValid) return;
-        onSubmit(values);
-    };
 
     const handleErrorsChildren = React.Children.map(children, (child) => {
         if (child.type === "label" && child.props.children) {
@@ -66,7 +45,7 @@ export default function ModalWithForm({onClose, title, name, buttonText, isOpen,
     });
 
     return (
-        <Modal onClose={onClose} isOpen={isOpen} name={"add-garment"}>
+        <Modal onClose={onClose} isOpen={isOpen} name={name}>
             <form className="form" name={name} onSubmit={handleSubmit} noValidate>
                 <h2 className="form__title">{title}</h2>
                 <fieldset className="form__fieldset">
@@ -74,6 +53,7 @@ export default function ModalWithForm({onClose, title, name, buttonText, isOpen,
                     <button type="submit"
                             className={`form__button-submit ${!isValid ? 'form__button-submit_disabled' : ''}`}
                             disabled={!isValid}
+                            onClick={resetForm}
                     >{buttonText}
                     </button>
                 </fieldset>
