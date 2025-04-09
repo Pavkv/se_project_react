@@ -25,52 +25,120 @@
 }
 
 .header__add-clothes {
-    margin-left: auto;
     border: none;
     padding: 0;
     transition: opacity .3s ease-in-out;
     cursor: pointer;
     background-color: transparent;
+    margin-right: 20px;
 }
 
 .header__add-clothes:hover {
     opacity: 0.6;
 }
 
-.header__text_name {
-    line-height: 1;
-    margin-left: 20px;
-}
-
-.header__avatar {
-    width: 40px;
-    height: 40px;
-    overflow: hidden;
-    margin-left: 12px;
-    border: 1px solid #00000080;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color .7s ease-in-out;
-}
-
-.header__avatar-image {
-    display: inline-block;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    width: inherit;
+.header__user {
     height: inherit;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity .3s ease-in-out;
+    text-decoration: none;
+    color: inherit;
 }
 
-.header__avatar-text {
+.header__toggle-switch {
+    display: flex;
+    align-items: center;
+    margin: auto 20px auto auto;
+    font-size: 0.875rem;
+    line-height: 1;
+    position: relative;
+    width: 54px;
+    height: 24px;
+}
+
+.header__toggle-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.header__toggle-slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: 2px solid #00000080;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.header__toggle-slider::before {
+    content: "";
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0000004D;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background-color: #000;
+    border-radius: 50%;
+    top: -2px;
+    left: -2px;
+    transition: transform 0.7s, content 0.7s;
+    z-index: 1;
+}
+
+.slider-text {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    top: -2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    opacity: .5;
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 0.7s ease;
+}
+
+.slider-text:first-of-type {
+    left: -2px;
+}
+
+.slider-text:last-of-type {
+    left: 28px;
+}
+
+.header__toggle-checkbox:checked + .header__toggle-slider::before{
+    transform: translateX(30px);
+}
+
+.header__toggle-checkbox + .header__toggle-slider .slider-text:first-of-type {
     color: #FFF;
-    line-height: 1;
-    width: inherit;
-    height: inherit;
+    opacity: 1;
+}
+
+.header__toggle-checkbox + .header__toggle-slider .slider-text:last-of-type {
+    color: #000;
+    opacity: .5;
+}
+
+.header__toggle-checkbox:checked + .header__toggle-slider .slider-text:first-of-type {
+    color: #000;
+    opacity: .5;
+}
+
+.header__toggle-checkbox:checked + .header__toggle-slider .slider-text:last-of-type {
+    color: #FFF;
+    opacity: 1;
 }
 
 @media screen and (max-width: 768px){
@@ -87,6 +155,20 @@
         height: 44px;
     }
 
+    .header__first-line-profile {
+        display: flex;
+        height: 44px;
+    }
+
+    .header__first-line-profile .header__logo {
+        margin-right: 3.2%;
+    }
+
+    .header__first-line-profile .header__text {
+        font-size: 1rem;
+        line-height: 1.2;
+    }
+
     .header__menu-toggle {
         width: 44px;
         background-image: url("../../assets/Menu-toggle.svg");
@@ -96,6 +178,7 @@
         border: none;
         padding: 0;
         cursor: pointer;
+        margin-left: auto;
     }
 
     .header__menu-toggle:hover {
@@ -117,6 +200,7 @@
         background-color: #FFF;
         box-shadow: 0 2px 8px 0 #0000001A;
         border-radius: 10px;
+        gap: 24px;
     }
 
     .header__close-btn {
@@ -139,9 +223,9 @@
         opacity: 1;
     }
 
-    .header__mobile-user {
+    .header__user {
         display: flex;
-        margin-bottom: 24px;
+        height: 40px;
     }
 
     .header__text_name {
@@ -149,7 +233,10 @@
     }
 
     .header__add-clothes {
-        margin-left: 0;
-        margin-bottom: 60px;
+        margin: 0;
+    }
+
+    .header__toggle-switch {
+        margin: 0 auto 40px;
     }
 }

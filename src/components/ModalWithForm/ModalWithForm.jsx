@@ -3,11 +3,11 @@ import React, {useEffect} from 'react';
 import {useFormAndValidation} from "../../utils/useFormAndValidation.js";
 
 export default function ModalWithForm({onClose, title, name, buttonText, isOpen, children, onSubmit, inputs}) {
-    const { values, handleChange, handleSubmit, errors, isValid, resetForm, setIsValid } = useFormAndValidation(onSubmit);
+    const { values, handleChange, handleSubmit, errors, isValid, setIsValid } = useFormAndValidation(onSubmit, onClose);
 
     useEffect(() => {
         if (values && Object.keys(values).length === inputs) {
-            setIsValid(Object.keys(errors).length === 0);
+            setIsValid(true);
         }
     }, [values]);
 
@@ -46,14 +46,13 @@ export default function ModalWithForm({onClose, title, name, buttonText, isOpen,
 
     return (
         <Modal onClose={onClose} isOpen={isOpen} name={name}>
-            <form className="form" name={name} onSubmit={handleSubmit} noValidate>
+            <form className="form" name={name} onChange={handleChange} onSubmit={handleSubmit} noValidate>
                 <h2 className="form__title">{title}</h2>
                 <fieldset className="form__fieldset">
                     {handleErrorsChildren}
                     <button type="submit"
                             className={`form__button-submit ${!isValid ? 'form__button-submit_disabled' : ''}`}
                             disabled={!isValid}
-                            onClick={resetForm}
                     >{buttonText}
                     </button>
                 </fieldset>

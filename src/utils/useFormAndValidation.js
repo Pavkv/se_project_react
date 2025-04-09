@@ -1,6 +1,6 @@
 import {useState, useCallback} from 'react';
 
-export function useFormAndValidation(onSubmit) {
+export function useFormAndValidation(onSubmit, onClose) {
     const [ values, setValues ] = useState({});
     const [ errors, setErrors ] = useState({});
     const [ isValid, setIsValid ] = useState(false);
@@ -15,6 +15,8 @@ export function useFormAndValidation(onSubmit) {
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit(values);
+        resetForm();
+        onClose();
     };
 
     const resetForm = useCallback((newValues = {}, newErrors = {}, newIsValid = false) => {
@@ -23,5 +25,5 @@ export function useFormAndValidation(onSubmit) {
         setIsValid(newIsValid);
     }, [setValues, setErrors, setIsValid]);
 
-    return { values, handleChange, handleSubmit, errors, isValid, resetForm, setValues, setIsValid };
+    return { values, handleChange, handleSubmit, errors, isValid, setValues, setIsValid };
 }

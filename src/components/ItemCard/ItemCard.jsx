@@ -4,7 +4,7 @@ export default function ItemCard({ clothingItem, onClick}) {
             <button className="item-card__button" onClick={onClick}>
                 <p className="item-card__name">{ clothingItem.name }</p>
                 <img className="item-card__img"
-                     src={ new URL(clothingItem.link, import.meta.url).href }
+                     src={ new URL(clothingItem.imageUrl, import.meta.url).href }
                      alt={ clothingItem.name }
                 />
             </button>

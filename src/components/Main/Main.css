@@ -1,23 +1,9 @@
-.main__item-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
 .main__weather-today {
     margin: 0;
     padding-bottom: 34px;
 }
 
 @media screen and (max-width: 768px){
-    .main__item-cards {
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 15px;
-    }
-
     .main__weather-today {
         padding-bottom: 20px;
     }

@@ -61,6 +61,12 @@
     opacity: 1;
 }
 
+.modal__text {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin: 0;
+}
+
 @media screen and (max-width: 768px){
     .modal__container {
         width: 90%;

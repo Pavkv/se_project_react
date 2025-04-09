@@ -3,18 +3,28 @@
     border-radius: 8px 8px 0 0;
 }
 
-.item-modal__card-text {
-    font-size: 1.25rem;
-    line-height: 1.2;
-    margin: 0;
-    padding-left: 32px;
+.item-modal__card-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    margin: 20px 32px 32px;
+}
+
+.item-modal_card-text-delete-btn {
+    border: none;
+    background-color: transparent;
+    align-self: flex-start;
+    justify-self: flex-end;
+    padding: 0;
+    color: #FF4D00;
+    transition: opacity .3ms ease-in-out;
+    cursor: pointer;
+}
+
+.item-modal_card-text-delete-btn:hover {
+    opacity: .6;
 }
 
 .item-modal__card-text_name {
-    padding-top: 20px;
     padding-bottom: 12px;
-}
-
-.item-modal__card-text_filter {
-    padding-bottom: 32px;
 }

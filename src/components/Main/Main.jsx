@@ -1,17 +1,13 @@
+import React, {useContext} from 'react';
 import WeatherCard from '../WeatherCard/WeatherCard.jsx';
-import ItemCard from '../ItemCard/ItemCard.jsx';
-import {useState, useEffect} from 'react';
+import {CurrentTemperatureUnitContext} from "../../context/CurrentTemperatureUnitContext.js";
+import {MobileContext} from "../../context/MobileContext.js";
+import ItemCards from "../ItemCards/ItemCards.jsx";
 
-function getWeatherType(temp) {
-    if (temp >= 75) return "hot";
-    if (temp >= 55) return "warm";
-    return "cold";
-}
-
-const WeatherToday = ({temp}) => {
+const WeatherToday = ({temp, tempUnit}) => {
     return (
         <p className="main__weather-today">
-            Today is {temp}° F / You may want to wear:
+            {`Today is ${temp}° ${tempUnit} / You may want to wear:`}
         </p>
     );
 };
@@ -25,19 +21,6 @@ function shuffleArray(array) {
     return shuffled;
 }
 
-const ItemCards = ({clothingItems, onCardClick, temp}) => {
-    return (
-        <section className="main__card-list">
-            <ul className="main__item-cards">
-                {clothingItems.filter(clothingItem => clothingItem.weather === getWeatherType(temp)).map((clothingItem) => (
-                    <ItemCard key={clothingItem._id} clothingItem={clothingItem}
-                              onClick={() => onCardClick("item", clothingItem)}/>
-                ))}
-            </ul>
-        </section>
-    );
-};
-
 const Randomize = ({onClick}) => {
     return (
         <button className="main__randomize" onClick={onClick}>
@@ -47,26 +30,19 @@ const Randomize = ({onClick}) => {
     );
 };
 
+export default function Main({weatherCard, filteredItems, setFilteredItems, onCardClick}) {
+    const {temp, tempUnit} = React.useContext(CurrentTemperatureUnitContext);
+    const {isMobile, isMobileMenuOpen} = useContext(MobileContext);
 
-export default function Main({weatherCard, clothingItems, onCardClick, isMobileMenuOpen, isMobile}) {
-    const [filteredItems, setFilteredItems] = useState([]);
-
-    useEffect(() => {
-        const initialFiltered = clothingItems.filter(item => item.weather === getWeatherType(weatherCard.temp));
-        setFilteredItems(initialFiltered);
-    }, [clothingItems, weatherCard.temp]);
-
-    const handleRandomize = () => {
-        setFilteredItems(prev => shuffleArray(prev));
-    };
+    const handleRandomize = () => setFilteredItems(prev => shuffleArray(prev))
 
     return (
         <main className='main'>
             {!isMobileMenuOpen && (
-                <WeatherCard weatherCard={weatherCard}/>
+                <WeatherCard weatherCard={weatherCard} temp={temp} tempUnit={tempUnit}/>
             )}
-            <WeatherToday temp={weatherCard.temp}/>
-            <ItemCards clothingItems={filteredItems} onCardClick={onCardClick} temp={weatherCard.temp}/>
+            <WeatherToday temp={temp} tempUnit={tempUnit}/>
+            <ItemCards filteredItems={filteredItems} onCardClick={onCardClick}/>
             {isMobile && (
                 <Randomize onClick={handleRandomize}/>
             )}

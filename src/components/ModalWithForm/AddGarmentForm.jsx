@@ -1,9 +1,19 @@
 import ModalWithForm from "./ModalWithForm.jsx";
 
-export default function AddGarmentForm({onClose, isOpen}) {
+export default function AddGarmentForm({onClose, isOpen, addItem, setClothingItems}) {
+    const handleSubmit = (values) => {
+        const newGarment = {
+            name: values['new-garment-name'],
+            imageUrl: values['new-garment-image-url'],
+            weather: values['new-garment-weather-type'].toLowerCase(),
+        };
+        addItem(newGarment, (items) => setClothingItems(items)).
+        catch(err => console.log(err));
+    };
+
     return (
         <ModalWithForm onClose={onClose} isOpen={isOpen} name="add-garment" title="Add Garment"
-                       buttonText="Add garment" inputs={3} onSubmit={(values) => console.log(values)}>
+                       buttonText="Add garment" inputs={3} onSubmit={handleSubmit}>
             <label className="form__label">
                 <div className="form__label-header">
                     Name
