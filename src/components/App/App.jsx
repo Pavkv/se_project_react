@@ -4,7 +4,7 @@ import Header from '../Header/Header.jsx';
 import Main from '../Main/Main.jsx';
 import Footer from '../Footer/Footer.jsx';
 import ItemModal from "../ItemModal/ItemModal.jsx";
-import AddGarmentForm from "../ModalWithForm/AddItemModal.jsx";
+import AddItemModal from "../ModalWithForm/AddItemModal.jsx";
 import * as constants from '../../utils/constants.js';
 import {getLocationNameWeather} from '../../utils/weatherApi.js';
 import {CurrentTemperatureUnitContext} from "../../context/CurrentTemperatureUnitContext.js";
@@ -120,7 +120,7 @@ export default function App() {
                             <ItemModal item={selectedItem} onClose={closeModal} isOpen={isModalOpen}
                                        onDeleteClick={() => setModalOpen("item-delete-confirmation")}/>}
                         {isModalOpen === "add-garment" &&
-                            <AddGarmentForm onClose={closeModal} isOpen={isModalOpen} addItem={addItem}
+                            <AddItemModal onClose={closeModal} isOpen={isModalOpen} addItem={addItem}
                                             setClothingItems={setClothingItems}/>}
                         {isModalOpen === "item-delete-confirmation" &&
                             <ItemDeleteConfirmationModel onClose={closeModal} isOpen={isModalOpen} onClick={() => {
