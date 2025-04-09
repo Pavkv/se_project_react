@@ -57,7 +57,7 @@ export default function Header({location, onAddClothesClick}) {
                 isMobileMenuOpen ? (
                     <div className="header__mobile-menu">
                         <button type="button" className="header__close-btn" onClick={toggleMobileMenu}/>
-                        <Link to="profile" className="header__user">
+                        <Link to="/profile" className="header__user">
                             <User />
                         </Link>
                         <AddClothes onClick={() => onAddClothesClick("add-garment")}/>
@@ -95,7 +95,7 @@ export default function Header({location, onAddClothesClick}) {
                     <Location location={location}/>
                     <ToggleSwitch/>
                     <AddClothes onClick={() => onAddClothesClick("add-garment")}/>
-                    <Link to="profile" className="header__user">
+                    <Link to="/profile" className="header__user">
                         <User />
                     </Link>
                 </>

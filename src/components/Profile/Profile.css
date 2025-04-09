@@ -5,14 +5,6 @@
     margin-top: 47px;
 }
 
-.profile .user {
-    flex-direction: row-reverse;
-    gap: 16px;
-    height: 56px;
-    width: auto;
-    white-space: nowrap;
-}
-
 .profile__button {
     border: none;
     padding: 0;
@@ -26,70 +18,10 @@
     opacity: 1;
 }
 
-.profile__clothes {
-    width: 100%;
-    height: 100%;
-}
-
-.profile__clothes-header {
-    display: flex;
-    gap: 20px;
-    font-size: 1.25rem;
-    line-height: 1;
-    height: 56px;
-    margin: auto 0;
-}
-
-.profile__clothes-header-text {
-    margin: auto 0;
-}
-
 @media screen and (max-width: 768px){
     .profile {
         flex-direction: column;
         gap: 0;
         margin: 0;
-    }
-
-    .profile__sidebar {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .profile__sidebar .user__text_name {
-        margin: 0;
-    }
-
-    .profile__change-data-btn {
-        margin: -12px 0 8px 72px ;
-    }
-
-    .profile__log-out-btn {
-        margin-left: 72px;
-    }
-
-    .profile__sidebar::before {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 1px;
-        background-color: #00000080;
-        margin: 0 auto 20px;
-    }
-
-    .profile__clothes::before {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 1px;
-        background-color: #00000080;
-        margin: 20px auto;
-    }
-
-    .profile__clothes-header {
-        height: 25px;
-        margin-bottom: 20px;
-        justify-content: space-between;
     }
 }
