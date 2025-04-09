@@ -1,0 +1,45 @@
+.user {
+    display: flex;
+    gap: 12px;
+    height: inherit;
+}
+
+.user__text {
+    font-family: 'Cabinet Grotesk Bold', SansSerif, sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin: auto 0;
+}
+
+.user__text_name {
+    line-height: 1;
+}
+
+.user__avatar {
+    height: calc(100% - 2px);
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border: 1px solid #00000080;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color .7s ease-in-out;
+}
+
+.user__avatar-image {
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+
+.user__avatar-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0000004D;
+    color: #FFF;
+    line-height: 1;
+    height: 100%;
+}
