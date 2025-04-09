@@ -4,7 +4,7 @@ import Header from '../Header/Header.jsx';
 import Main from '../Main/Main.jsx';
 import Footer from '../Footer/Footer.jsx';
 import ItemModal from "../ItemModal/ItemModal.jsx";
-import AddGarmentForm from "../ModalWithForm/AddGarmentForm.jsx";
+import AddGarmentForm from "../ModalWithForm/AddItemModal.jsx";
 import * as constants from '../../utils/constants.js';
 import {getLocationNameWeather} from '../../utils/weatherApi.js';
 import {CurrentTemperatureUnitContext} from "../../context/CurrentTemperatureUnitContext.js";
