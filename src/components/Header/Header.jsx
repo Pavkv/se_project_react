@@ -1,9 +1,9 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import User from "../User/User";
-import {CurrentTemperatureUnitContext} from "../../context/CurrentTemperatureUnitContext.js";
 import {MobileContext} from "../../context/MobileContext.js";
 import {Link} from "react-router-dom";
 import {ProfileContext} from "../../context/ProfileContext.js";
+import ToggleSwitch from "./ToggleSwitch.jsx";
 
 const Logo = () => <Link to="/" className="header__logo"/>;
 
@@ -13,33 +13,6 @@ const CurrentDate = () => {
 };
 
 const Location = ({location}) => <p className="header__text header__text_date-loc">&nbsp;{location}</p>;
-
-const ToggleSwitch = () => {
-    const {tempUnit, handleToggleSwitchChange} = useContext(CurrentTemperatureUnitContext);
-    const [isOn, setIsOn] = useState(false);
-
-    const onChange = (e) => {
-        setIsOn(e.target.checked);
-        handleToggleSwitchChange();
-    }
-
-    return (
-        <label className="header__toggle-switch">
-            <input
-                type="checkbox"
-                checked={isOn}
-                name="temp-toggle"
-                value={tempUnit}
-                className="header__toggle-checkbox"
-                onChange={onChange}
-            />
-            <span className="header__toggle-slider">
-                    <span className="slider-text">F</span>
-                    <span className="slider-text">C</span>
-                </span>
-        </label>
-    );
-};
 
 const AddClothes = ({onClick}) => (
     <button className="header__add-clothes header__text" onClick={onClick}>
