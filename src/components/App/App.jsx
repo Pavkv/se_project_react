@@ -113,7 +113,7 @@ export default function App() {
                                                            setFilteredItems={setFilteredItems}/>}/>
                             <Route path="/profile"
                                    element={<Profile weatherCard={weatherCard} onCardClick={openModal}
-                                                     filteredItems={filteredItems}/>}/>
+                                                     clothingItems={clothingItems} onAddClothesClick={openModal}/>}/>
                         </Routes>
                         <Footer/>
                         {isModalOpen === "item" &&
@@ -121,7 +121,7 @@ export default function App() {
                                        onDeleteClick={() => setModalOpen("item-delete-confirmation")}/>}
                         {isModalOpen === "add-garment" &&
                             <AddItemModal onClose={closeModal} isOpen={isModalOpen} addItem={addItem}
-                                            setClothingItems={setClothingItems}/>}
+                                            clothingItems={clothingItems} setClothingItems={setClothingItems}/>}
                         {isModalOpen === "item-delete-confirmation" &&
                             <ItemDeleteConfirmationModel onClose={closeModal} isOpen={isModalOpen} onClick={() => {
                                 deleteItem(selectedItem.id, (items) => setClothingItems(items))
