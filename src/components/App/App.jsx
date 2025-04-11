@@ -5,14 +5,14 @@ import Main from '../Main/Main.jsx';
 import Footer from '../Footer/Footer.jsx';
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import AddItemModal from "../ModalWithForm/AddItemModal.jsx";
-import * as constants from '../../utils/constants.js';
-import {getLocationNameWeather} from '../../utils/weatherApi.js';
-import {CurrentTemperatureUnitContext} from "../../context/CurrentTemperatureUnitContext.js";
-import {MobileContext} from "../../context/MobileContext.js";
 import Profile from "../Profile/Profile.jsx";
 import getWeatherType from "../../utils/GetWeatherType.js";
 import ItemDeleteConfirmationModel from "../ItemModal/ItemDeleteConfirmationModel.jsx";
+import * as constants from '../../utils/constants.js';
+import {getLocationNameWeather} from '../../utils/weatherApi.js';
 import {getItems, addItem, deleteItem} from "../../utils/api.js";
+import {CurrentTemperatureUnitContext} from "../../context/CurrentTemperatureUnitContext.js";
+import {MobileContext} from "../../context/MobileContext.js";
 import {ProfileContext} from "../../context/ProfileContext.js";
 
 export default function App() {
