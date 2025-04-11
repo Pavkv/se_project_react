@@ -2,8 +2,12 @@ import Modal from "../Modal/Modal.jsx";
 import React, {useEffect} from 'react';
 import {useFormAndValidation} from "../../utils/useFormAndValidation.js";
 
-export default function ModalWithForm({onClose, title, name, buttonText, isOpen, children, onSubmit, inputs}) {
-    const { values, handleChange, handleSubmit, errors, isValid, setIsValid } = useFormAndValidation(onSubmit, onClose);
+export default function ModalWithForm({onClose, title, name, buttonText, isOpen, children, onSubmit, inputs, isLoading}) {
+    const { values, handleChange, handleSubmit, errors, isValid, setIsValid } = useFormAndValidation({
+        onSubmit,
+        onClose,
+        isLoading
+    });
 
     useEffect(() => {
         if (values && Object.keys(values).length === inputs) {

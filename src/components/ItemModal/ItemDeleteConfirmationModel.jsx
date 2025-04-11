@@ -1,6 +1,6 @@
 import Modal from "../Modal/Modal.jsx";
 
-export default function ItemDeleteConfirmationModel({onClose, isOpen, onClick}) {
+export default function ItemDeleteConfirmationModel({onClose, isOpen, onClick, isLoading}) {
     return (
         <Modal onClose={onClose} isOpen={isOpen} name={"item-delete-confirmation"}>
             <div className="item-delete-confirmation-modal">
@@ -9,7 +9,7 @@ export default function ItemDeleteConfirmationModel({onClose, isOpen, onClick}) 
                 <p className="modal__text item-delete-confirmation-modal__text">This action is irreversible.</p>
                 <button
                     className="modal__text item-delete-confirmation-modal__button item-delete-confirmation-modal__button_confirm"
-                    type="button" onClick={onClick}>Yes, delete item
+                    type="button" onClick={onClick}>{isLoading ? "Loading..." : "Yes, delete item"}
                 </button>
                 <button
                     className="modal__text item-delete-confirmation-modal__button item-delete-confirmation-modal__button_cancel"

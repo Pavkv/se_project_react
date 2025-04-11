@@ -23,14 +23,10 @@ export const addItem = (item, onComplete) => {
     return fetchResponse('items', 'POST', item)
         .then(() => getItems())
         .then((data) => {
-            onComplete(data);
+            onComplete(data.reverse());
         });
 };
 
-export const deleteItem = (id, onComplete) => {
-    return fetchResponse(`items/${id}`, 'DELETE')
-        .then(() => getItems())
-        .then((data) => {
-            onComplete(data);
-        });
+export const deleteItem = (id) => {
+    return fetchResponse(`items/${id}`, 'DELETE');
 };
