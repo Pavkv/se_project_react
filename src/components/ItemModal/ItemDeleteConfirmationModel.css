@@ -5,6 +5,10 @@
     margin: 60px auto;
 }
 
+.item-delete-confirmation-modal__text {
+    text-align: center;
+}
+
 .item-delete-confirmation-modal__button {
     border: none;
     background-color: transparent;
@@ -21,4 +25,11 @@
     color: #FF4D00;
     margin-top: 40px;
     margin-bottom: 24px;
+}
+
+
+@media screen and (max-width: 768px){
+    .item-delete-confirmation-modal {
+        margin: 60px;
+    }
 }

@@ -1,6 +1,6 @@
 import {useState, useCallback} from 'react';
 
-export function useFormAndValidation({onSubmit, onClose, isLoading}) {
+export function useFormAndValidation({onSubmit, onClose, setLoading}) {
     const [ values, setValues ] = useState({});
     const [ errors, setErrors ] = useState({});
     const [ isValid, setIsValid ] = useState(false);
@@ -17,7 +17,7 @@ export function useFormAndValidation({onSubmit, onClose, isLoading}) {
         onSubmit(values).catch(console.error).then(() => {
             onClose();
             resetForm();
-        }).finally(isLoading(false));
+        }).finally(setLoading(false));
     };
 
     const resetForm = useCallback((newValues = {}, newErrors = {}, newIsValid = false) => {

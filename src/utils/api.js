@@ -19,12 +19,10 @@ export const getItems = () => {
     return fetchResponse('items');
 };
 
-export const addItem = (item, onComplete) => {
+export const addItem = (item) => {
     return fetchResponse('items', 'POST', item)
         .then(() => getItems())
-        .then((data) => {
-            onComplete(data.reverse());
-        });
+        .then(data => data.reverse());
 };
 
 export const deleteItem = (id) => {
