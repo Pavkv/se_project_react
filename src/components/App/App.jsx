@@ -16,7 +16,6 @@ import {getItems, addItem, deleteItem} from "../../utils/api.js";
 import {ProfileContext} from "../../context/ProfileContext.js";
 
 export default function App() {
-    const loc = useLocation();
     const [location, setLocation] = useState('');
     const [originalTempF, setOriginalTempF] = useState(0);
     const [temp, setTemp] = useState(0);
@@ -28,8 +27,8 @@ export default function App() {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 879);
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [filteredItems, setFilteredItems] = useState([]);
+    const loc = useLocation();
     const [isProfileOpen, setProfileOpen] = useState(false);
-    const [isLoading, setLoading] = useState(false);
 
     const handleToggleSwitchChange = () => {
         setTempUnit((prevUnit) => {
@@ -63,8 +62,8 @@ export default function App() {
 
     useEffect(() => {
         getItems().then(data => {
-            return setClothingItems([...data.reverse()])
-        }).catch(console.error);
+            return setClothingItems([...data])
+        }).catch(err => console.log(err));
     }, []);
 
     useEffect(() => {
@@ -114,7 +113,7 @@ export default function App() {
                                                            setFilteredItems={setFilteredItems}/>}/>
                             <Route path="/profile"
                                    element={<Profile weatherCard={weatherCard} onCardClick={openModal}
-                                                     clothingItems={clothingItems} onAddClothesClick={openModal}/>}/>
+                                                     filteredItems={filteredItems}/>}/>
                         </Routes>
                         <Footer/>
                         {isModalOpen === "item" &&
@@ -122,13 +121,12 @@ export default function App() {
                                        onDeleteClick={() => setModalOpen("item-delete-confirmation")}/>}
                         {isModalOpen === "add-garment" &&
                             <AddItemModal onClose={closeModal} isOpen={isModalOpen} addItem={addItem}
-                                          clothingItems={clothingItems} setClothingItems={setClothingItems} isLoading={isLoading}/>}
+                                            setClothingItems={setClothingItems}/>}
                         {isModalOpen === "item-delete-confirmation" &&
-                            <ItemDeleteConfirmationModel onClose={closeModal} isOpen={isModalOpen} isLoading={isLoading} onClick={() => {
-                                setLoading(true);
-                                deleteItem(selectedItem._id).then(() => setClothingItems(clothingItems.filter(item => item._id !== selectedItem._id)))
-                                    .then(() => getItems())
-                                    .catch(console.error).then(closeModal).finally(() => setLoading(false));
+                            <ItemDeleteConfirmationModel onClose={closeModal} isOpen={isModalOpen} onClick={() => {
+                                deleteItem(selectedItem.id, (items) => setClothingItems(items))
+                                    .catch(err => console.log(err));
+                                closeModal();
                             }}/>}
                     </ProfileContext.Provider>
                 </MobileContext.Provider>
