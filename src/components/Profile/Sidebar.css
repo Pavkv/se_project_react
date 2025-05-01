@@ -6,6 +6,16 @@
     white-space: nowrap;
 }
 
+.sidebar__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sidebar__edit-profile-btn {
+    margin: 24px 0 8px;
+}
+
 @media screen and (max-width: 768px) {
     .sidebar {
         display: flex;
@@ -17,7 +27,7 @@
         margin: 0;
     }
 
-    .sidebar__change-data-btn {
+    .sidebar__edit-profile-btn {
         margin: -12px 0 8px 72px;
     }
 

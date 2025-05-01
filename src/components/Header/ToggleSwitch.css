@@ -1,7 +1,7 @@
 .toggle-switch {
     display: flex;
     align-items: center;
-    margin: auto 20px auto auto;
+    margin: auto 0 auto auto;
     font-size: 0.875rem;
     line-height: 1;
     position: relative;

@@ -1,4 +1,5 @@
 import ModalWithForm from "./ModalWithForm.jsx";
+import {getToken} from "../../utils/token.js";
 
 export default function AddItemModal({onClose, isOpen, addItem, clothingItems, setClothingItems, isLoading, setLoading}) {
     const handleSubmit = (values) => {
@@ -9,7 +10,7 @@ export default function AddItemModal({onClose, isOpen, addItem, clothingItems, s
             weather: values['new-garment-weather-type'].toLowerCase()
         };
         setLoading(true);
-        return addItem(newGarment).then((updatedList) => setClothingItems(updatedList));
+        return addItem(newGarment, getToken()).then((updatedList) => setClothingItems(updatedList.reverse()));
     };
 
     return (

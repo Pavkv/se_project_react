@@ -1,9 +1,11 @@
 import React, {useState} from "react";
+import {CurrentUserContext} from "../../context/CurrentUserContext.js";
 
 export default function User() {
-    const name = "Pasha Zobov";
-    const avatar = new URL(`../../assets/Default-Avatar.png`, import.meta.url).href;
+    const {currentUser} = React.useContext(CurrentUserContext);
     const [isHovered, setIsHovered] = useState(false);
+    const name = currentUser.name;
+    const avatar = currentUser.avatar || new URL(`../../assets/Default-Avatar.png`, import.meta.url).href;
 
     return (
         <div className="user">

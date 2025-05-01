@@ -15,12 +15,24 @@ const CurrentDate = () => {
 const Location = ({location}) => <p className="header__text header__text_date-loc">&nbsp;{location}</p>;
 
 const AddClothes = ({onClick}) => (
-    <button className="header__add-clothes header__text" onClick={onClick}>
+    <button className="header__button header__text" onClick={onClick}>
         + Add clothes
     </button>
 );
 
-export default function Header({location, onAddClothesClick}) {
+const SignUp = ({onClick}) => (
+    <button className="header__button header__text" onClick={onClick}>
+        Sign Up
+    </button>
+);
+
+const LogIn = ({onClick}) => (
+    <button className="header__button header__text" onClick={onClick}>
+        Log In
+    </button>
+);
+
+export default function Header({location, onButtonClick, isLoggedIn}) {
     const {isMobile, isMobileMenuOpen, toggleMobileMenu} = useContext(MobileContext);
     const {isProfileOpen} = useContext(ProfileContext);
 
@@ -33,7 +45,7 @@ export default function Header({location, onAddClothesClick}) {
                         <Link to="/profile" className="header__user">
                             <User />
                         </Link>
-                        <AddClothes onClick={() => onAddClothesClick("add-garment")}/>
+                        <AddClothes onClick={() => onButtonClick("add-garment")}/>
                         <ToggleSwitch/>
                     </div>
                 ) : (
@@ -66,11 +78,22 @@ export default function Header({location, onAddClothesClick}) {
                     <Logo/>
                     <CurrentDate/>
                     <Location location={location}/>
-                    <ToggleSwitch/>
-                    <AddClothes onClick={() => onAddClothesClick("add-garment")}/>
-                    <Link to="/profile" className="header__user">
-                        <User />
-                    </Link>
+                    <div className="header__menu-bar">
+                        <ToggleSwitch/>
+                        {isLoggedIn ? (
+                            <>
+                                <AddClothes onClick={() => onButtonClick("add-garment")}/>
+                                <Link to="/profile" className="header__user">
+                                    <User />
+                                </Link>
+                            </>
+                        ) : (
+                            <>
+                                <SignUp onClick={() => onButtonClick("sign-up")}/>
+                                <LogIn onClick={() => onButtonClick("log-in")}/>
+                            </>
+                        )}
+                    </div>
                 </>
             )}
         </header>

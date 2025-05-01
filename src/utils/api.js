@@ -1,30 +1,25 @@
+import fetchResponse from "./fetch.js";
 const baseUrl = 'http://localhost:3001';
 
-async function fetchResponse(endpoint, method, body) {
-    return await fetch(`${baseUrl}/${endpoint}`, {
-        method: method || 'GET',
-        body: body ? JSON.stringify(body) : undefined,
-        headers: {
-            'Content-Type': "application/json"
-        }
-    }).then(res => {
-        if (res.ok) {
-            return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-    });
-}
-
 export const getItems = () => {
-    return fetchResponse('items');
+    return fetchResponse(baseUrl, 'items').then(res => {
+        return res.data.reverse()});
 };
 
-export const addItem = (item) => {
-    return fetchResponse('items', 'POST', item)
-        .then(() => getItems())
-        .then(data => data.reverse());
+
+export const addItem = (item, token) => {
+    return fetchResponse(baseUrl, 'items', 'POST', item, token)
+        .then(() => getItems());
 };
 
-export const deleteItem = (id) => {
-    return fetchResponse(`items/${id}`, 'DELETE');
+export const deleteItem = (id, token) => {
+    return fetchResponse(baseUrl, `items/${id}`, 'DELETE', undefined, token);
+};
+
+export const likeItem = (id, token) => {
+    return fetchResponse(baseUrl, `items/${id}/likes`, 'PUT', undefined, token);
+};
+
+export const dislikeItem = (id, token) => {
+    return fetchResponse(baseUrl, `items/${id}/likes`, 'DELETE', undefined, token);
 };

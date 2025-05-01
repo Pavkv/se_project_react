@@ -15,26 +15,56 @@
     height: 100%;
 }
 
-.item-card__name {
-    margin: 0;
-    position: absolute;
-    top: 17px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #00000099;
-    line-height: 1.25;
-    padding: 2px 12px;
-    border-radius: 8px;
-    z-index: 1;
-    background-color: #FFF;
-}
-
 .item-card__img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: inherit;
+}
+
+.item-card__header {
+    position: absolute;
+    top: 17px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1;
+}
+
+.item-card__name {
+    margin: 0;
+    color: #00000099;
+    line-height: 1.25;
+    background-color: #FFF;
+    border-radius: 8px;
+    padding: 2px 12px;
+}
+
+.item-card__like {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 18px;
+    height: 15px;
+    padding: 0;
+    transition: .3s ease-in-out;
+}
+
+.item-card__like_idle {
+    background-image: url("../../assets/Like-btn-idle.svg");
+}
+
+.item-card__like_selected {
+    background-image: url("../../assets/Like-btn-selected.svg");
+}
+
+.item-card__like:hover + .item-card__like_selected:hover {
+    opacity: .6;
 }
 
 @media screen and (max-width: 768px){

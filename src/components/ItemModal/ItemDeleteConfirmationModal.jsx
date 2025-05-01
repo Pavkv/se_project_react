@@ -1,6 +1,6 @@
 import Modal from "../Modal/Modal.jsx";
 
-export default function ItemDeleteConfirmationModel({onClose, isOpen, onClick, isLoading}) {
+export default function ItemDeleteConfirmationModal({onClose, isOpen, onClick, isLoading}) {
     return (
         <Modal onClose={onClose} isOpen={isOpen} name={"item-delete-confirmation"}>
             <div className="item-delete-confirmation-modal">

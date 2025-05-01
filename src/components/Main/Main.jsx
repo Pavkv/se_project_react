@@ -30,7 +30,7 @@ const Randomize = ({onClick}) => {
     );
 };
 
-export default function Main({weatherCard, filteredItems, setFilteredItems, onCardClick}) {
+export default function Main({weatherCard, filteredItems, setFilteredItems, onCardClick, isLoggedIn, onCardLike}) {
     const {temp, tempUnit} = React.useContext(CurrentTemperatureUnitContext);
     const {isMobile, isMobileMenuOpen} = useContext(MobileContext);
 
@@ -42,7 +42,7 @@ export default function Main({weatherCard, filteredItems, setFilteredItems, onCa
                 <WeatherCard weatherCard={weatherCard} temp={temp} tempUnit={tempUnit}/>
             )}
             <WeatherToday temp={temp} tempUnit={tempUnit}/>
-            <ItemCards filteredItems={filteredItems} onCardClick={onCardClick}/>
+            <ItemCards filteredItems={filteredItems} onCardClick={onCardClick} isLoggedIn={isLoggedIn} onCardLike={onCardLike}/>
             {isMobile && (
                 <Randomize onClick={handleRandomize}/>
             )}

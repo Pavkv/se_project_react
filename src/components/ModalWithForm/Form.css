@@ -66,15 +66,20 @@
     accent-color: black;
 }
 
-.form__button-submit {
+.form__buttons {
+    display: flex;
+    gap: 12px;
     margin-top: 8px;
+}
+
+.form__button-submit {
     background-color: #000;
     border: none;
     border-radius: 4px;
     color: #FFF;
     transition: opacity .7s ease-in-out;
     cursor: pointer;
-    width: 124px;
+    width: fit-content;
     height: 36px;
     padding: 8px 16px;
 }
@@ -86,6 +91,24 @@
 .form__button-submit_disabled {
     opacity: .3;
     cursor: default;
+}
+
+.form__button-redirect {
+    border: none;
+    padding: 0;
+    opacity: .6;
+    transition: opacity .3s ease-in-out;
+    cursor: pointer;
+    background-color: transparent;
+    margin: auto 0;
+}
+
+.form__button-redirect:hover {
+    opacity: 1;
+}
+
+.form__button-redirect_disabled {
+    visibility: hidden;
 }
 
 .form__input_type_error {

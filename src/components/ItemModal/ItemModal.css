@@ -25,6 +25,10 @@
     opacity: .6;
 }
 
+.item-modal_card-text-delete-btn_disabled {
+    visibility: hidden;
+}
+
 .item-modal__card-text_name {
     padding-bottom: 12px;
 }

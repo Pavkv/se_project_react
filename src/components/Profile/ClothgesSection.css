@@ -16,6 +16,14 @@
     margin: auto 0;
 }
 
+.clothes-section__header-add-btn {
+    opacity: .6;
+}
+
+.clothes-section__header-add-btn:hover {
+    opacity: 1;
+}
+
 @media screen and (max-width: 768px){
     .clothes-section::before {
         content: '';
