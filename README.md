@@ -1,12 +1,38 @@
-# React + Vite
+# WTWR (What to Wear) - Front-End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+**WTWR** is a responsive weather-based clothing suggestion app. The front-end is built with **React** and allows users to sign up, log in, view weather data, and add clothing items to share with others. Authenticated users can like items, view their own items in their profile, and manage their wardrobe visually.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ✅ **Responsive React UI** for both mobile and desktop.
+- 🌤 **Weather API integration** to fetch and display current temperature and weather type.
+- 👕 **Clothing catalog** where items are filtered based on current weather.
+- 👤 **User authentication** with token-based login and registration.
+- 🧾 **Profile page** showing only the current user's clothing items.
+- 💬 **Modals** for adding clothing, editing profile, and viewing item details.
+- ❤️ **Like feature** to interact with shared clothing items.
+- 🔐 **Protected routes** using React Router.
+
+---
+
+## Technologies Used
+
+- **React** (with Hooks and Context API)
+- **React Router** for routing and page navigation
+- **Fetch API** for communicating with the back-end server
+- **React Context** for managing:
+  - Temperature unit (F / C)
+  - Current logged-in user
+  - Device responsiveness (mobile vs desktop)
+- **Custom Hooks** (`useFormAndValidation`) for handling form state and validation
+- **CSS** with BEM methodology for styling
+- **JWT** for handling authentication
+
+---
+
+## Link for the backend of a project
+https://github.com/Pavkv/se_project_express
