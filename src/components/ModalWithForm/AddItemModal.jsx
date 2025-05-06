@@ -10,7 +10,7 @@ export default function AddItemModal({onClose, isOpen, addItem, clothingItems, s
             weather: values['new-garment-weather-type'].toLowerCase()
         };
         setLoading(true);
-        return addItem(newGarment, getToken()).then((updatedList) => setClothingItems(updatedList.reverse()));
+        return addItem(newGarment, getToken()).then((updatedList) => setClothingItems(updatedList));
     };
 
     return (

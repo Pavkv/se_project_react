@@ -139,6 +139,16 @@ export default function App() {
             }).catch(console.error);
     };
 
+    const handleDeleteItem = () => {
+        setLoading(true);
+        deleteItem(selectedItem._id, getToken())
+            .then(() => setClothingItems(clothingItems.filter(item => item._id !== selectedItem._id)))
+            .then(getItems)
+            .catch(console.error)
+            .then(closeModal)
+            .finally(() => setLoading(false));
+    };
+
     const signOut = () => {
         setCurrentUser({});
         setLoggedIn(false);
@@ -194,15 +204,7 @@ export default function App() {
                                     onClose={closeModal}
                                     isOpen={isModalOpen}
                                     isLoading={isLoading}
-                                    onClick={() => {
-                                        setLoading(true);
-                                        deleteItem(selectedItem._id, getToken())
-                                            .then(() => setClothingItems(clothingItems.filter(item => item._id !== selectedItem._id)))
-                                            .then(getItems)
-                                            .catch(console.error)
-                                            .then(closeModal)
-                                            .finally(() => setLoading(false));
-                                    }}
+                                    onClick={handleDeleteItem}
                                 />
                             )}
                             {isModalOpen === "sign-up" && (
