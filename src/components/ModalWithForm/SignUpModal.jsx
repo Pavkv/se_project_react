@@ -1,5 +1,5 @@
 import ModalWithForm from "./ModalWithForm.jsx";
-import {signIn, signUp} from "../../utils/auth.js";
+import {getCurrentUser, signIn, signUp} from "../../utils/auth.js";
 import {useNavigate} from "react-router-dom";
 import {setToken} from "../../utils/token.js";
 
@@ -18,10 +18,12 @@ export default function SignUpModal({onOpen, onClose, isOpen, isLoading, setLoad
             .then(user => {
                 if (user.token) {
                     setToken(user.token);
-                    setCurrentUser(user.data);
-                    setLoggedIn(true);
-                    navigate('/profile');
+                    return getCurrentUser(user.token);
                 }
+            }).then(user => {
+                setCurrentUser(user.data);
+                setLoggedIn(true);
+                navigate('/profile');
             });
     };
 
