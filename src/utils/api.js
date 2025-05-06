@@ -1,5 +1,7 @@
 import fetchResponse from "./fetch.js";
-const baseUrl = 'http://localhost:3001';
+const baseUrl = process.env.NODE_ENV === "production"
+    ? "https://api.whatowearexpress.twilightparadox.com"
+    : "http://localhost:3001";
 
 export const getItems = () => {
     return fetchResponse(baseUrl, 'items').then(res => {
