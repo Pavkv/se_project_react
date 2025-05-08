@@ -1,35 +1,34 @@
 .item-delete-confirmation-modal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 60px auto;
 }
 
 .item-delete-confirmation-modal__text {
-    text-align: center;
+  text-align: center;
 }
 
 .item-delete-confirmation-modal__button {
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    transition: opacity .3ms ease-in-out;
-    cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  transition: opacity 0.3ms ease-in-out;
+  cursor: pointer;
 }
 
 .item-delete-confirmation-modal__button:hover {
-    opacity: .6;
+  opacity: 0.6;
 }
 
 .item-delete-confirmation-modal__button_confirm {
-    color: #FF4D00;
-    margin-top: 40px;
-    margin-bottom: 24px;
+  color: #ff4d00;
+  margin-top: 40px;
+  margin-bottom: 24px;
 }
 
-
-@media screen and (max-width: 768px){
-    .item-delete-confirmation-modal {
-        margin: 60px;
-    }
+@media screen and (max-width: 768px) {
+  .item-delete-confirmation-modal {
+    margin: 60px;
+  }
 }

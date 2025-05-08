@@ -1,46 +1,46 @@
 .sidebar .user {
-    flex-direction: row-reverse;
-    gap: 16px;
-    height: 56px;
-    width: auto;
-    white-space: nowrap;
+  flex-direction: row-reverse;
+  gap: 16px;
+  height: 56px;
+  width: auto;
+  white-space: nowrap;
 }
 
 .sidebar__buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .sidebar__edit-profile-btn {
-    margin: 24px 0 8px;
+  margin: 24px 0 8px;
 }
 
 @media screen and (max-width: 768px) {
-    .sidebar {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .sidebar .user__text_name {
-        margin: 0;
-    }
+  .sidebar .user__text_name {
+    margin: 0;
+  }
 
-    .sidebar__edit-profile-btn {
-        margin: -12px 0 8px 72px;
-    }
+  .sidebar__edit-profile-btn {
+    margin: -12px 0 8px 72px;
+  }
 
-    .sidebar__log-out-btn {
-        margin-left: 72px;
-    }
+  .sidebar__log-out-btn {
+    margin-left: 72px;
+  }
 
-    .sidebar::before {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 1px;
-        background-color: #00000080;
-        margin: 0 auto 20px;
-    }
+  .sidebar::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #00000080;
+    margin: 0 auto 20px;
+  }
 }

@@ -1,34 +1,34 @@
 .item-modal__card-img {
-    width: 100%;
-    border-radius: 8px 8px 0 0;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
 }
 
 .item-modal__card-content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: space-between;
-    margin: 20px 32px 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  margin: 20px 32px 32px;
 }
 
 .item-modal_card-text-delete-btn {
-    border: none;
-    background-color: transparent;
-    align-self: flex-start;
-    justify-self: flex-end;
-    padding: 0;
-    color: #FF4D00;
-    transition: opacity .3ms ease-in-out;
-    cursor: pointer;
+  border: none;
+  background-color: transparent;
+  align-self: flex-start;
+  justify-self: flex-end;
+  padding: 0;
+  color: #ff4d00;
+  transition: opacity 0.3ms ease-in-out;
+  cursor: pointer;
 }
 
 .item-modal_card-text-delete-btn:hover {
-    opacity: .6;
+  opacity: 0.6;
 }
 
 .item-modal_card-text-delete-btn_disabled {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .item-modal__card-text_name {
-    padding-bottom: 12px;
+  padding-bottom: 12px;
 }

@@ -1,9 +1,9 @@
 .app {
-    background-color: #F3F3F3;
-    font-family: 'Cabinet Grotesk Bold', SansSerif, sans-serif;
-    font-size: 16px;
-    line-height: 20px;
-    letter-spacing: 0;
-    color: #000;
-    padding: calc(100vw * 0.03);
+  background-color: #f3f3f3;
+  font-family: 'Cabinet Grotesk Bold', SansSerif, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: #000;
+  padding: calc(100vw * 0.03);
 }
