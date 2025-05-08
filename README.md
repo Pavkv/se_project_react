@@ -1,49 +1,67 @@
-# WTWR (What to Wear) - Front-End
+# WTWR Front-End
+
+WTWR (What to Wear) is a weather-based clothing recommendation app. The **front-end** of this project is a modern, responsive, and interactive React application that connects with a RESTful back-end server to authenticate users, manage user profiles, and allow users to create, view, and interact with weather-related clothing items.
+
 <img width="1470" alt="image" src="https://github.com/user-attachments/assets/5c1c659e-d34e-4f75-bea5-f765c0c7b7c8" />
 
-## Overview
-
-**WTWR** is a responsive weather-based clothing suggestion app. The front-end is built with **React** and allows users to sign up, log in, view weather data, and add clothing items to share with others. Authenticated users can like items, view their own items in their profile, and manage their wardrobe visually.
-
-## Web Link
-https://whatowearexpress.twilightparadox.com
-
-(Click on the link to get access to the website)
-
-## Features
-
-- ✅ **Responsive React UI** for both mobile and desktop.
-- 🌤 **Weather API integration** to fetch and display current temperature and weather type.
-- 👕 **Clothing catalog** where items are filtered based on current weather.
-- 👤 **User authentication** with token-based login and registration.
-- 🧾 **Profile page** showing only the current user's clothing items.
-- 💬 **Modals** for adding clothing, editing profile, and viewing item details.
-- ❤️ **Like feature** to interact with shared clothing items.
-- 🔐 **Protected routes** using React Router.
-
 ---
 
-## Technologies Used
-
-- **React** (with Hooks and Context API)
-- **React Router** for routing and page navigation
-- **Fetch API** for communicating with the back-end server
-- **React Context** for managing:
-  - Temperature unit (F / C)
-  - Current logged-in user
-  - Device responsiveness (mobile vs desktop)
-- **Custom Hooks** (`useFormAndValidation`) for handling form state and validation
-- **CSS** with BEM methodology for styling
-- **JWT** for handling authentication
-
----
-
-## Link for the backend of a project
+## Link for the back-end of a project
 
 https://github.com/Pavkv/se_project_express
 
-## Author
-Pasha Zobov  
+---
+
+## Web Link
+
+https://whatowearexpress.twilightparadox.com
+
+---
+
+## 📌 Description
+
+The front-end is a React-based single-page application that interacts with a back-end API to:
+
+- Display weather data based on geolocation
+- Recommend appropriate clothing items based on weather
+- Allow users to register, log in, and manage their clothing collection
+- Like or delete items, and edit their profile information
+
+The project supports responsive design and is optimized for both desktop and mobile experiences.
+
+---
+
+## 🚀 Features
+
+- Weather-based outfit suggestions
+- Item filtering by temperature
+- User registration, login
+- Create/read/delete clothing items
+- Update user profile and avatar
+- Like/unlike clothing items
+- Mobile menu and responsive layout
+
+## 🧪 Technologies Used
+
+- **React** with hooks and context
+- **React Router**
+- **Vite** as build tool
+- **CSS3** for styling
+- **ESLint** + **Prettier** for code linting and formatting
+- **JWT** for token-based authentication
+- **Fetch API** for making requests
+
+---
+
+## 📄 License
+
+This project is licensed under the [ISC License](LICENSE).
+
+---
+
+## 👨‍💻 Author
+
+[Pasha Zobov](https://github.com/Pavkv)
 2025 © WTWR
 
 ---
